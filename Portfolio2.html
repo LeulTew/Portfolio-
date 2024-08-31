@@ -1,0 +1,622 @@
+<html><head><base href=""><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leul Tewodros Agonafer - Computer Science Student & Tech Innovator</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+  :root {
+    --primary-color: #e74c3c;
+    --secondary-color: #c0392b;
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+    --card-bg: #fff;
+    --chart-text: #333;
+  }
+
+  .dark-mode {
+    --primary-color: #ff6b6b;
+    --secondary-color: #ff8e8e;
+    --text-color: #f4f4f4;
+    --bg-color: #333;
+    --card-bg: #444;
+    --chart-text: #f4f4f4;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  header {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+
+  nav ul li {
+    margin-left: 30px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: var(--primary-color);
+  }
+
+  #hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-color);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-content {
+    z-index: 2;
+  }
+
+  .hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: var(--secondary-color);
+  }
+
+  .hero-image {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+  }
+
+  #about, #experience, #projects, #contact, #design-portfolio {
+    padding: 100px 0;
+  }
+
+  h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .skill-bars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .skill-bar {
+    width: 48%;
+    margin-bottom: 20px;
+  }
+
+  .skill-bar h3 {
+    margin-bottom: 10px;
+  }
+
+  .skill-bar .bar {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .skill-bar .progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0;
+    transition: width 1s ease;
+  }
+
+  #projects .project-grid, #design-portfolio .design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .project-card, .design-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover, .design-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .project-card img, .design-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .project-card .content, .design-card .content {
+    padding: 20px;
+  }
+
+  .project-card h3, .design-card h3 {
+    margin-bottom: 10px;
+  }
+
+  .project-card p, .design-card p {
+    margin-bottom: 20px;
+  }
+
+  #contact form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  #contact input,
+  #contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+  }
+
+  #contact textarea {
+    height: 150px;
+  }
+
+  #contact button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  #contact button:hover {
+    background-color: var(--secondary-color);
+  }
+
+  #skills-chart-container {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #skills-chart {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .parallax-section {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #dark-mode-toggle {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #dark-mode-toggle:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">Leul</div>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#design-portfolio">Design</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="dark-mode-toggle"><i class="fas fa-moon"></i></button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div id="particles-js"></div>
+    <div class="container hero-content">
+      <h1>Hey, I'm <br>Leul Tewodros Agonafer</h1>
+      <p>A passionate Computer Science student with a flair for innovative tech solutions</p>
+      <a href="#contact" class="cta-button">Let's Innovate Together</a>
+    </div>
+    <div class="hero-image">
+      <img src="/a/baf7936e-817e-49d4-8f7f-e44c7e1cf70c" alt="Portrait of a young man in a white shirt standing in front of a colorful wall with plants" width="600" height="600">
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>As a dedicated Computer Science student, I'm on a mission to push the boundaries of technology. My journey in tech is fueled by a deep curiosity for AI, machine learning, and cutting-edge web technologies. I believe in the power of code to solve real-world problems and create meaningful impact.</p>
+      <p>When I'm not coding, you'll find me exploring the latest tech trends, contributing to open-source projects, or mentoring aspiring developers. My goal is to bridge the gap between complex algorithms and user-friendly applications, making technology more accessible and beneficial for everyone.</p>
+    </div>
+  </section>
+
+  <div class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+
+  <section id="experience">
+    <div class="container">
+      <h2>Skills & Experience</h2>
+      <div class="skill-bars">
+        <div class="skill-bar">
+          <h3>Full-Stack Development</h3>
+          <div class="bar"><div class="progress" data-width="90%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <h3>Machine Learning & AI</h3>
+          <div class="bar"><div class="progress" data-width="85%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <h3>UI/UX Design</h3>
+          <div class="bar"><div class="progress" data-width="80%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <h3>Cloud Computing (AWS, GCP)</h3>
+          <div class="bar"><div class="progress" data-width="75%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2>Technical Proficiencies</h2>
+      <div id="skills-chart-container">
+        <canvas id="skills-chart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <div class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80');"></div>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Recent Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="https://via.placeholder.com/300x200?text=EcoTrack+App" alt="EcoTrack App preview">
+          <div class="content">
+            <h3>EcoTrack</h3>
+            <p>An IoT-based mobile app for monitoring and reducing carbon footprints in smart cities, integrating real-time data analytics.</p>
+            <a href="#" class="cta-button">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/300x200?text=NeuralNotes" alt="NeuralNotes preview">
+          <div class="content">
+            <h3>NeuralNotes</h3>
+            <p>An AI-powered note-taking app that uses NLP to organize, summarize, and generate insights from user notes.</p>
+            <a href="#" class="cta-button">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/300x200?text=QuantumQuest" alt="QuantumQuest preview">
+          <div class="content">
+            <h3>QuantumQuest</h3>
+            <p>An educational VR game that teaches quantum computing concepts through immersive, interactive puzzles and simulations.</p>
+            <a href="#" class="cta-button">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/300x200?text=BlockchainVote" alt="BlockchainVote preview">
+          <div class="content">
+            <h3>BlockchainVote</h3>
+            <p>A secure, transparent voting system built on blockchain technology, ensuring tamper-proof election processes.</p>
+            <a href="#" class="cta-button">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="design-portfolio">
+    <div class="container">
+      <h2>Designer Portfolio</h2>
+      <div class="design-grid">
+        <div class="design-card">
+          <img src="https://via.placeholder.com/300x200?text=Eco+App+UI" alt="Eco App UI Design">
+          <div class="content">
+            <h3>Eco App UI Design</h3>
+            <p>A sleek, intuitive UI design for an eco-friendly lifestyle app, focusing on user engagement and sustainability metrics.</p>
+            <a href="#" class="cta-button">View Design</a>
+          </div>
+        </div>
+        <div class="design-card">
+          <img src="https://via.placeholder.com/300x200?text=Tech+Conference+Branding" alt="Tech Conference Branding">
+          <div class="content">
+            <h3>Tech Conference Branding</h3>
+            <p>Comprehensive branding package for a cutting-edge technology conference, including logo, marketing materials, and digital assets.</p>
+            <a href="#" class="cta-button">View Design</a>
+          </div>
+        </div>
+        <div class="design-card">
+          <img src="https://via.placeholder.com/300x200?text=AI+Dashboard" alt="AI Dashboard Design">
+          <div class="content">
+            <h3>AI Dashboard Design</h3>
+            <p>A data-rich, visually compelling dashboard design for an AI analytics platform, optimizing data visualization and user interaction.</p>
+            <a href="#" class="cta-button">View Design</a>
+          </div>
+        </div>
+        <div class="design-card">
+          <img src="https://via.placeholder.com/300x200?text=Smart+Home+App" alt="Smart Home App Design">
+          <div class="content">
+            <h3>Smart Home App Design</h3>
+            <p>User-centric mobile app design for controlling smart home devices, featuring an intuitive interface and customizable themes.</p>
+            <a href="#" class="cta-button">View Design</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Let's Create Something Amazing</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Share your ideas or opportunities" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      updateChartColors();
+      updateDarkModeButton();
+    });
+
+    function updateDarkModeButton() {
+      const isDarkMode = body.classList.contains('dark-mode');
+      darkModeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    }
+
+    // Particles.js
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: '#e74c3c' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#e74c3c', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 6, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+      },
+      retina_detect: true
+    });
+
+    // GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.hero-content', { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+    gsap.from('.hero-image', { opacity: 0, x: 100, duration: 1, delay: 0.8 });
+
+    gsap.utils.toArray('.skill-bar .progress').forEach(bar => {
+      gsap.to(bar, {
+        width: bar.getAttribute('data-width'),
+        duration: 1.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: bar,
+          start: 'top 80%',
+        }
+      });
+    });
+
+    gsap.utils.toArray('.project-card, .design-card').forEach(card => {
+      gsap.from(card, {
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 80%',
+        }
+      });
+    });
+
+    // Parallax effect
+    gsap.utils.toArray('.parallax-section').forEach(section => {
+      gsap.to(section, {
+        backgroundPosition: `50% ${innerHeight / 2}px`,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    });
+
+    // Skills chart
+    let skillsChart;
+
+    function initSkillsChart() {
+      const ctx = document.getElementById('skills-chart').getContext('2d');
+      skillsChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Python', 'Java', 'JavaScript', 'HTML/CSS', 'Machine Learning', 'Database Management'],
+          datasets: [{
+            label: 'Skill Level',
+            data: [80, 85, 75, 90, 75, 80],
+            backgroundColor: 'rgba(231, 76, 60, 0.2)',
+            borderColor: 'rgba(231, 76, 60, 1)',
+            pointBackgroundColor: 'rgba(231, 76, 60, 1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(231, 76, 60, 1)'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              angleLines: { color: 'rgba(0, 0, 0, 0.2)' },
+              grid: { color: 'rgba(0, 0, 0, 0.2)' },
+              pointLabels: { color: 'rgba(0, 0, 0, 0.7)', font: { size: 14 } },
+              ticks: { backdropColor: 'rgba(0, 0, 0, 0)', color: 'rgba(0, 0, 0, 0.7)', showLabelBackdrop: false, font: { size: 10 } }
+            }
+          },
+          plugins: { 
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.parsed.r + '%';
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function updateChartColors() {
+      const isDarkMode = body.classList.contains('dark-mode');
+      const backgroundColor = isDarkMode ? 'rgba(255, 107, 107, 0.2)' : 'rgba(231, 76, 60, 0.2)';
+      const borderColor = isDarkMode ? 'rgba(255, 107, 107, 1)' : 'rgba(231, 76, 60, 1)';
+      const textColor = isDarkMode ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)';
+
+      skillsChart.data.datasets[0].backgroundColor = backgroundColor;
+      skillsChart.data.datasets[0].borderColor = borderColor;
+      skillsChart.data.datasets[0].pointBackgroundColor = borderColor;
+      skillsChart.data.datasets[0].pointHoverBorderColor = borderColor;
+      skillsChart.options.scales.r.angleLines.color = isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)';
+      skillsChart.options.scales.r.grid.color = isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)';
+      skillsChart.options.scales.r.pointLabels.color = textColor;
+      skillsChart.options.scales.r.ticks.color = textColor;
+      skillsChart.update();
+    }
+
+    // Initialize skills chart when the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', initSkillsChart);
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body></html>
